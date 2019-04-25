@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+            $(
+            function() 
+            {
+                $("#btnIngresar").click( function()
+                {
+                    alert('btnIngresar click');
+                    var  Usuario = $("#txtCodigoUsuario").val();
+                    var  Clave = $("#txtClaveAcceso").val(); 
+
+                    $.ajax
+                    (
+                        {
+                            type:"GET",
+                            url:"http://localhost:8080/WebEncuesta/app/Login/"+Usuario+"/"+Clave,
+                            sucess:function(msg)
+                            {
+                                console.log("ok" + msg.toString());
+                            },
+                            error:function(msg)
+                            {
+                                console.log("Error" + msg.toString());
+                            }
+                            
+                        }).done(function(msg)
+                        {
+                                console.log("Done" + msg.toString());
+                            
+                        }
+                                
+                    );
+
+                });
+            });
+          
+        </script>          
+            
+            
+    </head>
+   <body>
+
+       <form name="Forma">
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>  
+            <div class="panel-heading-login">
+                Ingreso
+            </div>
+            <div class="panel-body-login">
+                <table class="tablemainlogin">
+                <tr >
+                        <td >
+                        <br />
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                    </tr>                    
+                    <tr >
+                        <td>
+                        </td>    
+                        <td >
+                            Usuario
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                    </tr>
+                    <tr >
+                        <td>
+                        </td>    
+                        <td>
+                            <input id="txtCodigoUsuario" name="txtCodigoUsuario" type="text" maxLength="20"  required/>
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                    </tr>
+                    <tr >
+                        <td>
+                        </td>    
+                        <td>
+                            Contraseña
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                    </tr>
+                    <tr >
+                        <td>
+                        </td>    
+                        <td>
+                            <input id="txtClaveAcceso" name="txtClaveAcceso" type="password" maxLength="15"  required/>
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                    </tr>
+                    <tr >
+                        <td >
+                        <br />
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                    </tr>                     
+                <tr >
+                        <td>
+                        </td>    
+                        <td>
+                            <input type="button" id="btnIngresar" value="Ingresar" />
+                        </td>    
+                        <td>
+                            <input type="button" id="btnSalir"   value="Salir"/>    
+                        </td>    
+                        <td>
+                        </td>    
+                    </tr>
+                    <tr >
+                        <td >
+                        <br />
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                        <td>
+                        </td>    
+                    </tr> 
+                </table>
+            </div>
+        </center>
+    </form >
+    
+
+</body>
+
+ 
+
+</html>

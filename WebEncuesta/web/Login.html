@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.js" type="text/javascript"></script>
+ <script   src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script>
+$(function() 
+{
+$("#button").click( function()
+{
+   alert('button clicked');
+   var TXT_URL = $("#input-url").val();
+
+    $.ajax
+    (
+    	{
+        	url : TXT_URL,
+			dataType: "text",
+			success : function (data) 
+			{
+            	$(".text").html("<pre>"+data+"</pre>");
+			}
+		}
+	);
+   });
+});
+
+</script>
+<body>
+Ingrese una url válida:<input type="text" id="input-url" size="50" value="https://www.mozilla.org/media/MPL/2.0/index.815ca599c9df.txt"></input>
+
+<input type="button" id="button" value="Ver .txt"></input>
+<div class="text">
+  <hr />
+  <h2>Texto:</h2>
+</div>
+    
+
+</body>
+
+ 
+
+</html>
